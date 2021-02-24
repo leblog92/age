@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>Happy</title>
+<link rel="icon" type="image/png" href="https://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32421-birthday-cake-icon.png"/>
+<style>
+html,body{
+height:100%;
+margin:0;
+}
+body{
+font-family:Consolas;
+background-size:cover;
+background-color:#eee;
+}
+#div1{
+text-align:center;
+position:absolute;
+background-color:#ccc;
+border-radius: 25px;
+top:50%;
+left:50%;
+margin-top:-75px;
+margin-left:-200px;
+width:400px;
+height:150px;
+}
+#myVideo{
+position:fixed;
+right:0;
+bottom:0;
+min-width:100%;
+min-height:100%;
+z-index:-1;
+}
+</style>
+<script type="text/javascript">
+function submitBday(){
+    var Q4A="Votre anniversaire est le ";
+    var Bdate=document.getElementById("bday").value;
+    var Bday=+new Date(Bdate);
+    Q4A+=Bdate+".<br>Vous avez "+~~((Date.now()-Bday)/(31557600000))+" an(s).";
+    var theBday=document.getElementById("resultBday");
+    theBday.innerHTML=Q4A;
+}
+</script>
+</head>
+<body>
+<video autoplay muted loop id="myVideo">Your browser does not support HTML5 video.</video>
+<div id="div1">
+  <p id="resultBday">Rentrez la date de naissance<br>pour calculer l'âge.</p>
+  <input type="date" name="bday" id="bday" onchange="submitBday()">
+</div>
+<script>
+var vidElement=document.getElementById('myVideo');
+var vidSources=["loop00.mp4","loop01.mp4","loop02.mp4","loop03.mp4","loop04.mp4","loop05.mp4","loop06.mp4","loop07.mp4","loop08.mp4","loop09.mp4","loop10.mp4","loop11.mp4","loop12.mp4","loop13.mp4","loop14.mp4","loop15.mp4","loop16.mp4","loop17.mp4","loop18.mp4"];
+var activeVideo=Math.floor((Math.random()*vidSources.length));
+vidElement.src=vidSources[activeVideo];
+
+vidElement.addEventListener('ended', function(e){
+
+activeVideo=(++activeVideo) % vidSources.length;
+if(activeVideo===vidSources.length){
+activeVideo=0;
+}
+
+vidElement.src=vidSources[activeVideo];
+vidElement.play();
+});
+
+var video=document.getElementById("myVideo");
+video.play();
+</script>
+</body>
+</html>
