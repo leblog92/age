@@ -39,7 +39,7 @@ function submitBday(){
     var Q4A="Votre anniversaire est le ";
     var Bdate=document.getElementById("bday").value;
     var Bday=+new Date(Bdate);
-    Q4A+=Bdate+".<br>Vous avez "+~~((Date.now()-Bday)/(31557600000))+" an(s).";
+    Q4A+=Bdate+"<br>Vous avez "+~~((Date.now()-Bday)/(31557600000))+" an(s)";
     var theBday=document.getElementById("resultBday");
     theBday.innerHTML=Q4A;
 }
@@ -48,7 +48,7 @@ function submitBday(){
 <body>
 <video autoplay muted loop id="myVideo">Your browser does not support HTML5 video.</video>
 <div id="div1">
-  <p id="resultBday">Rentrez la date de naissance<br>pour calculer l'âge.</p>
+  <p id="resultBday">Rentrez la date de naissance<br>pour calculer l'âge</p>
   <input type="date" name="bday" id="bday" onchange="submitBday()">
 </div>
 <script>
